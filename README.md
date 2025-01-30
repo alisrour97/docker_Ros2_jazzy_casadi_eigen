@@ -51,7 +51,7 @@ chmod +x create_dc_ros2.sh
 ```
 
 This starts the Docker container, and its name will be `dc_ros2`.
-Just as a note `chmod +x ` is required only once to giver permission.
+Just as a note `chmod +x ` is required only once to give permission.
 
 ---
 

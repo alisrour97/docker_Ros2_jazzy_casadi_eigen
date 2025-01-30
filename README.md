@@ -42,10 +42,8 @@ cd dock_dronecontroller2
 
 ## **3. Run the Docker Container**
 
+Before running the docker **Copy the `create_dc_ros2.sh` script** inside `DroneController2`.
 Each time you need to enter the Docker container, execute the following steps:
-
-1. **Copy the `create_dc_ros2.sh` script** inside `DroneController2`.
-2. **Run the script** using the commands below:
 
 ```bash
 chmod +x create_dc_ros2.sh
@@ -53,6 +51,7 @@ chmod +x create_dc_ros2.sh
 ```
 
 This starts the Docker container, and its name will be `dc_ros2`.
+Just as a note `chmod +x ` is required only once to giver permission.
 
 ---
 

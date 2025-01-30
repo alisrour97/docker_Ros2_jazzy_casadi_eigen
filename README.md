@@ -58,14 +58,12 @@ This starts the Docker container, and its name will be `dc_ros2`.
 
 ## **4. Managing the Docker Container**
 
-### **Open Another Instance of the Container**
 If you need to open another instance in a separate terminal, use:
 
 ```bash
 docker exec -u 0 -it dc_ros2 bash
 ```
 
-### **Closing and Restarting the Container**
 To close the container, simply press `Ctrl+D` inside the container.
 
 To restart it later, use:
@@ -75,14 +73,12 @@ docker start dc_ros2
 docker attach dc_ros2
 ```
 
-### **Removing the Container**
 If you want to remove the container:
 
 ```bash
 docker rm dc_ros2
 ```
 
-### **Handling Running Instances**
 If the `./create_dc_ros2.sh` script does not open the container, an old instance may still be running. Remove it using:
 
 ```bash
@@ -97,5 +93,4 @@ Then, re-run the script:
 
 ---
 
-This guide ensures a smooth setup of Docker for `DroneController2`. If you encounter issues, ensure Docker is properly installed and your user has the necessary permissions. Happy coding! 🚀
 

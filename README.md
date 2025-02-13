@@ -33,7 +33,7 @@ sudo usermod -aG docker $USER
 The following command builds the Docker image on your host machine. This step is required only once unless you modify the `Dockerfile`.
 
 ```bash
-git clone http://gitlab.sts.seaowl.com:20000/dev/dock_dronecontroller2.git
+git clone http://gitlab.sts.seaowl.com:9004/dev/dock_dronecontroller2.git
 cd dock_dronecontroller2
 ./build.bash Jazzy
 ```

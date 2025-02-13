@@ -27,7 +27,9 @@ ENV LANG=C.UTF-8 \
 # Installation des packages de dev
 RUN apt-get update && apt-get install -y \
     socat \
-    ros-jazzy-desktop-full \ 
+    ros-jazzy-desktop-full \
+    ros-jazzy-mavros \
+    ros-jazzy-mavros-msgs \
     ros-jazzy-geographic-msgs \
     libqt5serialport5-dev \
     libprotobuf-dev \
@@ -37,6 +39,9 @@ RUN apt-get update && apt-get install -y \
     colcon \
     python3-colcon-common-extensions \
     && apt-get clean
+    
+RUN apt-get update && apt-get install -y libqt5serialbus5-dev
+
 
 # Installation des dependences python 
 #RUN python3 -m pip install colcon-common-extensions --break-system-packages
@@ -51,6 +56,7 @@ WORKDIR /build
 
 # Copier le contenu du dépôt dans le conteneur
 #COPY . /build
+
 
 # Donner les permissions d'exécution au script de builds
 #RUN chmod +x /build/*.sh

@@ -36,11 +36,12 @@ RUN apt-get update && apt-get install -y \
     libprotoc-dev \
     protobuf-compiler \
     libqt5serialport5 \
+    libqt5serialbus5-dev\
     colcon \
     python3-colcon-common-extensions \
     && apt-get clean
     
-RUN apt-get update && apt-get install -y libqt5serialbus5-dev
+RUN apt-get update && apt-get install -y libqt5positioning5-dev
 
 
 # Installation des dependences python 

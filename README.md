@@ -1,6 +1,6 @@
-# **Docker Setup Guide for DroneController2**
+# **Docker Setup Guide for Ubunto ROS2- Jazzy**
 
-This documentation provides a step-by-step guide on how to install Docker locally on a Linux system and use it as a container for `dev/DroneController2`.
+This documentation provides a step-by-step guide on how to install Docker locally on a Linux system and use it as a container for `Ros2/Jazzy`.
 
 ---
 
@@ -33,8 +33,8 @@ sudo usermod -aG docker $USER
 The following command builds the Docker image on your host machine. This step is required only once unless you modify the `Dockerfile`.
 
 ```bash
-git clone http://gitlab.sts.seaowl.com:9004/dev/dock_dronecontroller2.git
-cd dock_dronecontroller2
+git clone https://github.com/alisrour97/Docker_ubunto_24-Ros_jazzy.git
+cd Docker_ubunto_24-Ros_jazzy
 ./build.bash Jazzy
 ```
 
@@ -42,7 +42,7 @@ cd dock_dronecontroller2
 
 ## **3. Run the Docker Container**
 
-Before running the docker **Copy the `create_dc_ros2.sh` script** inside `DroneController2`.
+Before running the docker **Copy the `create_dc_ros2.sh` script** inside `Ros2-ws`.
 Each time you need to enter the Docker container, execute the following steps:
 
 ```bash

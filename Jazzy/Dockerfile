@@ -25,23 +25,26 @@ ENV LANG=C.UTF-8 \
     ROS_DISTRO=jazzy
 
 # Installation des packages de dev
-RUN apt-get update && apt-get install -y \
-    socat \
-    ros-jazzy-desktop-full \
-    ros-jazzy-mavros \
-    ros-jazzy-mavros-msgs \
-    ros-jazzy-geographic-msgs \
-    libqt5serialport5-dev \
-    libprotobuf-dev \
-    libprotoc-dev \
-    protobuf-compiler \
-    libqt5serialport5 \
-    libqt5serialbus5-dev\
-    colcon \
-    python3-colcon-common-extensions \
-    && apt-get clean
     
-RUN apt-get update && apt-get install -y libqt5positioning5-dev
+# Installation des packages de dev
+RUN apt-get update && apt-get install -y socat ros-jazzy-desktop-full ros-jazzy-mavros ros-jazzy-mavros-msgs ros-jazzy-geographic-msgs libprotobuf-dev libprotoc-dev protobuf-compiler libqt5serialport5 libqt5serialport5-dev libqt5serialbus5-dev colcon python3-colcon-common-extensions 
+RUN apt-get clean
+    
+#RUN apt-get update && apt-get install -y libqt5positioning5-dev
+
+
+# ----------------------------
+# Build and install CasADi from the main branch for C++
+# ----------------------------
+RUN apt-get update && apt-get install -y liblapack-dev libblas-dev  # dependencies for CasADi
+RUN git clone https://github.com/casadi/casadi.git /opt/casadi && \
+    cd /opt/casadi && \
+    mkdir build && cd build && \
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local && \
+    make -j$(nproc) && \
+    make install && \
+    cd / && rm -rf /opt/casadi
+
 
 
 # Installation des dependences python 

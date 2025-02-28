@@ -50,11 +50,6 @@ RUN git clone https://github.com/casadi/casadi.git /opt/casadi && \
 # Installation des dependences python 
 #RUN python3 -m pip install colcon-common-extensions --break-system-packages
 
-# Creation d'un utilisateur non root (optionnel mais recommandé)
-#RUN useradd -ms /bin/bash seaowl && \
-#    echo "seaowl:seaowl" | chpasswd && \
-#    usermod -aG sudo seaowl
-
 # Définition du répertoire de travail pour le mapping
 WORKDIR /build
 
@@ -65,13 +60,9 @@ WORKDIR /build
 # Donner les permissions d'exécution au script de builds
 #RUN chmod +x /build/*.sh
 
-# Commande par défaut
-#USER seaowl
 
 RUN echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc 
 
-#RUN echo 'export CMAKE_PREFIX_PATH=/opt/ros/jazzy:$CMAKE_PREFIX_PATH' >> ~/.bashrc
-#RUN echo 'export ament_cmake_DIR=/opt/ros/jazzy/share/ament_cmake/cmake' >> ~/.bashrc
 
 CMD ["/bin/bash"]
 

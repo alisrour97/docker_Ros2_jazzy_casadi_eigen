@@ -36,11 +36,28 @@ RUN apt-get clean
 # ----------------------------
 # Build and install CasADi from the main branch for C++
 # ----------------------------
-RUN apt-get update && apt-get install -y liblapack-dev libblas-dev  # dependencies for CasADi
+#RUN apt-get update && apt-get install -y liblapack-dev libblas-dev  # dependencies for CasADi
+#RUN git clone https://github.com/casadi/casadi.git /opt/casadi && \
+#    cd /opt/casadi && \
+#    mkdir build && cd build && \
+#    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local && \
+#    make -j$(nproc) && \
+#    make install && \
+#    cd / && rm -rf /opt/casadi
+    
+    
+# Install CasADi dependencies INCLUDING IPOPT explicitly
+RUN apt-get update && apt-get install -y \
+    liblapack-dev libblas-dev \
+    coinor-libipopt-dev coinor-libipopt1v5
+
+# Build CasADi explicitly with IPOPT support
 RUN git clone https://github.com/casadi/casadi.git /opt/casadi && \
     cd /opt/casadi && \
     mkdir build && cd build && \
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local && \
+    cmake .. -DCMAKE_BUILD_TYPE=Release \
+             -DCMAKE_INSTALL_PREFIX=/usr/local \
+             -DWITH_IPOPT=ON && \
     make -j$(nproc) && \
     make install && \
     cd / && rm -rf /opt/casadi

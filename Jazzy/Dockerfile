@@ -44,6 +44,10 @@ RUN apt-get clean
 #    make -j$(nproc) && \
 #    make install && \
 #    cd / && rm -rf /opt/casadi
+
+#For documentation doxygen format
+RUN apt-get update && apt-get install -y doxygen graphviz
+
     
     
 # Install CasADi dependencies INCLUDING IPOPT explicitly
